@@ -1,0 +1,28 @@
+version: "3.7"
+
+
+services:
+
+  db:
+    image: mysql
+    container_name: mysql-test
+    enviroment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: test
+    ports: 
+      - 33061:3306
+
+  portal:
+    image: portal:1.0.0
+    container_name: portal
+    ports:
+      - 80:80
+
+  logica:
+    image: api:1.0.0
+    container_name: logica
+    ports:
+      -8000:800
+    depends_on:
+      - db
+
