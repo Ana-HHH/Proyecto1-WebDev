@@ -1,0 +1,53 @@
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+</style>
+
+<html>
+  <h1>Formulario</h1>
+
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="fname">
+        Nombre Completo
+      </label>
+      <input id="fname" type="text" formControlName="fname">
+    </div>
+
+    <div>
+      <label for="lname">
+        Apodo
+      </label>
+      <input id="lname" type="text" formControlName="lname">
+    </div>
+
+    <button class="button" type="submit">Subir</button>
+
+  </form>
+
+
+
+
+
+</html>
+
