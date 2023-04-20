@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+
+  db:
+    image: mysql
+    restart: always
+    container_name: mysql-test-ana
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: test
+    ports: 
+      - 33061:3306
+
+  portal:
+    image: webapp:1.0.1
+    container_name: portal
+    ports:
+      - 80:80
+
+  logica:
+    image: logica:1.0.0
+    container_name: logica
+    ports:
+      - 8000:800
+    links:
+      - db
+    depends_on:
+      - db
+
